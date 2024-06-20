@@ -1,31 +1,73 @@
 import React from 'react'
 import style from '../styles/styles.module.css'
 import noImage from '../assets/no-image.jpg'
-const ProductCard = () => {
-    // <img className={style.productImg} src={noImage}/>
-    
-    const [count, setCount] = React.useState(0)
+import { useProduct } from '../hooks/useProduct'
 
-    const increaseBy = (value:number) => {
-        setCount(prev => Math.max(prev + value,0))
-    }
+
+interface Props {
+  product: Product
+
+}
+
+
+interface Product {
+  id: string,
+  title: string,
+  img?: string,
+
+}
+
+
+export const ProductImage = ({ img = '' }) => {
+  return (
+    <img className={style.productImg} src={img ? img : noImage} alt="Product" />
+  )
+
+}
+
+
+export const ProductTitle = ({ title }: { title: string }) => {
+  return (
+    <span className={style.productDescription}>{title}</span>
+  )
+
+
+}
+
+interface ProductButtonsProps {
+  count: number,
+  increaseBy: (value: number) => void
+}
+
+export const ProductButtons = ({ count, increaseBy }: ProductButtonsProps) => {
+
+  return (
+    <div className={style.buttonsContainer}>
+      <button className={style.buttonMinus}
+        onClick={() => increaseBy(-1)}
+      >-</button>
+      <div className={style.countLabel}>{count}</div>
+      <button className={style.buttonAdd}
+        onClick={() => increaseBy(1)}
+      >+</button>
+
+    </div>
+  )
+
+}
+
+const ProductCard = ({ product }: Props) => {
+ 
+  const { count, increaseBy } = useProduct()
 
   return (
     <div className={style.productCard}>
-     <img className={style.productImg} src='./coffee-mug.png'/>
 
-        <span className={style.productDescription}>Coffee Mug</span>
+      <ProductImage img={product.img} />
 
-        <div className={style.buttonsContainer}>
-            <button  className={style.buttonMinus} 
-            onClick={()=>increaseBy(-1)}
-            >-</button>
-            <div className={style.countLabel}>{count}</div>
-            <button className={style.buttonAdd} 
-             onClick={()=>increaseBy(1)}   
-            >+</button>
+      <ProductTitle title={product.title} />
 
-        </div>
+      <ProductButtons count={count} increaseBy={increaseBy}/>
 
     </div>
   )
