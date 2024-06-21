@@ -1,7 +1,7 @@
-import React from 'react'
-import ProductCard from '../components/ProductCard'
+import React, { Children } from 'react'
+import { ProductCard,ProductButtons, ProductImage, ProductTitle } from '../components/ProductCard'
 
-const product ={
+const product = {
   id: '1',
   title: 'Coffee Mug',
   img: './coffee-mug.png'
@@ -19,8 +19,20 @@ const ShoppingPage = () => {
           flexWrap: 'wrap',
         }}
       >
-        <ProductCard product={product}/>
-        
+        {/* <ProductCard product={product}>
+
+          <ProductImage />
+          <ProductTitle title={'kkk kafe+'}/>
+           <ProductButtons />  
+        </ProductCard> */}
+
+        <ProductCard product={product}>
+
+          <ProductCard.Image />
+          <ProductCard.Title title={'kkk kafe+'} />
+          {/* <ProductButtons /> */}
+        </ProductCard>
+
       </div>
     </div>
   )

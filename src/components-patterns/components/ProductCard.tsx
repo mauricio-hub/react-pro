@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import style from '../styles/styles.module.css'
 import noImage from '../assets/no-image.jpg'
 import { useProduct } from '../hooks/useProduct'
@@ -6,7 +6,7 @@ import { useProduct } from '../hooks/useProduct'
 
 interface Props {
   product: Product
-
+  children?: ReactElement | ReactElement[]
 }
 
 
@@ -56,21 +56,26 @@ export const ProductButtons = ({ count, increaseBy }: ProductButtonsProps) => {
 
 }
 
-const ProductCard = ({ product }: Props) => {
+export const ProductCard = ({ product,children }: Props) => {
  
   const { count, increaseBy } = useProduct()
 
   return (
     <div className={style.productCard}>
-
-      <ProductImage img={product.img} />
+      {children}
+      {/* <ProductImage img={product.img} />
 
       <ProductTitle title={product.title} />
 
-      <ProductButtons count={count} increaseBy={increaseBy}/>
+      <ProductButtons count={count} increaseBy={increaseBy}/> */}
 
     </div>
   )
 }
 
-export default ProductCard
+
+
+
+ProductCard.Title = ProductTitle
+ProductCard.Image = ProductImage
+ProductCard.Buttons = ProductButtons
