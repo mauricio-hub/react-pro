@@ -5,14 +5,14 @@
     border-radius: 15px;
     color: black;
     padding-bottom: 5px;
-    width: 250px;
+    width: 260px;
     margin-right: 5px;
     margin-top: 5px;
 }
 
 .productImg {
     border-radius: 15px 15px 0px 0px;
-    width: 100%;
+    width: 90%;
 }
 
 .productDescription {

@@ -1,6 +1,6 @@
 import React, { Children } from 'react'
 import { ProductCard, ProductButtons, ProductImage, ProductTitle } from '../components'
-
+import '../styles/custom-styles.css'
 
 const product = {
   id: '1',
@@ -11,7 +11,9 @@ const product = {
 
 const ShoppingPage = () => {
   return (
-    <div>
+    <div
+  
+    >
       <h1>Shopingpages</h1>
       <div
         style={{
@@ -28,10 +30,12 @@ const ShoppingPage = () => {
         </ProductCard> 
 
 
-        <ProductCard product={product}>
+        <ProductCard product={product}
+        className='bg-dark'
+        >
 
-          <ProductImage />
-          <ProductTitle title='' />
+          <ProductImage  classNane='custom-image'/>
+          <ProductTitle title='' className='text-white'/>
           <ProductButtons />
         </ProductCard>
 

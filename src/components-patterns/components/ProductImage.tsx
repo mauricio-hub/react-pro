@@ -4,7 +4,13 @@ import style from '../styles/styles.module.css'
 
 import noImage from '../assets/no-image.jpg'
 
-export const ProductImage = ({ img = '' }) => {
+interface Props {
+  img?: string
+  classNane?: string
+}
+
+
+export const ProductImage = ({ img,classNane}:Props) => {
 
     const { product } = useContext(ProductContext);
   
@@ -17,10 +23,13 @@ export const ProductImage = ({ img = '' }) => {
     else{
       imgToShow = noImage
     }
+
+
+    
   
   
     return (
-      <img className={style.productImg} src={imgToShow} alt="Product" />
+      <img className={`${style.productImg} ${classNane}`} src={imgToShow} alt="Product" />
     )
   
   }

@@ -1,0 +1,15 @@
+
+
+.bg-dark {
+  background-color: #0f1418;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.custom-image {
+  padding: 10px;
+  border-radius: 20%;
+  width: clac(100% - 20px);
+}
