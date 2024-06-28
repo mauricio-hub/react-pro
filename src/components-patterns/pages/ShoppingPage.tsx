@@ -22,21 +22,23 @@ const ShoppingPage = () => {
           flexWrap: 'wrap',
         }}
       >
-        <ProductCard product={product}>
+        <ProductCard product={product}
+        className='bg-dark text-white'
+        >
 
-          <ProductCard.Image />
-          <ProductCard.Title title='Coffe mug 2' />
-          <ProductCard.Buttons />
+          <ProductCard.Image classNane='custom-image'/>
+          <ProductCard.Title  className='text-bold' activeClass='active'/>
+          <ProductCard.Buttons className='custom-button' />
         </ProductCard> 
 
 
         <ProductCard product={product}
-        className='bg-dark'
+        className='bg-dark text-white'
         >
 
           <ProductImage  classNane='custom-image'/>
-          <ProductTitle title='' className='text-white'/>
-          <ProductButtons />
+          <ProductTitle title='hola' className='text-bold' activeClass='active'/>
+          <ProductButtons className='custom-button'/>
         </ProductCard>
 
 

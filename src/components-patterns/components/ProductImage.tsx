@@ -4,7 +4,7 @@ import style from '../styles/styles.module.css'
 
 import noImage from '../assets/no-image.jpg'
 
-interface Props {
+export interface Props {
   img?: string
   classNane?: string
 }

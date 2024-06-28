@@ -13,3 +13,17 @@
   border-radius: 20%;
   width: clac(100% - 20px);
 }
+.text-bold {
+  font-weight: bold;
+}
+
+.custom-button button{
+ color: rgb(255, 255, 255);
+ border-color: #fff;
+}
+
+.custom-button button, .custom-button div{
+  color: rgb(255, 255, 255);
+  border-color: #fff;
+ }
+ 
