@@ -1,23 +1,26 @@
 import { useContext } from "react"
 import { ProductContext } from "./ProductCard"
 import { ProductContextProps, Product } from '../interfaces/interfaces';
-import style from '../styles/styles.module.css'
+import styles from '../styles/styles.module.css'
 
 export interface Props{
   className?: string
+  style?: React.CSSProperties
 }
 
-export const ProductButtons = ({className}:Props) => {
+export const ProductButtons = ({className,style}:Props) => {
 
     const { count, increaseBy } = useContext(ProductContext) as ProductContextProps
   
     return (
-      <div className={`${style.buttonsContainer} ${className}`}>
-        <button className={style.buttonMinus}
+      <div className={`${styles.buttonsContainer} ${className}`}
+        style={style}
+      >
+        <button className={styles.buttonMinus}
           onClick={() => increaseBy(-1)}
         >-</button>
-        <div className={style.countLabel}>{count}</div>
-        <button className={style.buttonAdd}
+        <div className={styles.countLabel}>{count}</div>
+        <button className={styles.buttonAdd}
           onClick={() => increaseBy(1)}
         >+</button>
   
