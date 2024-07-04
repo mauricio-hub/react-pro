@@ -1,18 +1,26 @@
 import React, { Children } from 'react'
 import { ProductCard, ProductButtons, ProductImage, ProductTitle } from '../components'
 import '../styles/custom-styles.css'
+import { Product } from '../interfaces/interfaces'
 
-const product = {
+const product1 = {
   id: '1',
   title: 'Coffee Mug',
   img: './coffee-mug.png'
 }
 
+const product2 = {
+  id: '2',
+  title: 'Coffee Mug white',
+  img: './coffee-mug2.png'
+}
+
+const products: Product[] = [product1, product2]
 
 const ShoppingPage = () => {
   return (
     <div
-  
+
     >
       <h1>Shopingpages</h1>
       <div
@@ -22,56 +30,52 @@ const ShoppingPage = () => {
           flexWrap: 'wrap',
         }}
       >
-        <ProductCard product={product}
-        className='bg-dark text-white'
+
+        {
+          products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              className='bg-dark text-white'
+            >
+              <ProductImage classNane='custom-image' />
+              <ProductTitle className='text-bold' activeClass='active' />
+              <ProductButtons className='custom-button' />
+            </ProductCard>
+          ))
+        }
+
+
+
+      </div>
+
+      <div className='shopping-cart'>
+        <ProductCard
+
+          product={product2}
+          className='bg-dark text-white'
+          style={{
+            width: '200px',
+            height: '200px',
+            margin: '10px'
+          }}
         >
-
-          <ProductCard.Image classNane='custom-image'/>
-          <ProductCard.Title  className='text-bold' activeClass='active'/>
-          <ProductCard.Buttons className='custom-button' />
-        </ProductCard> 
-
-
-        <ProductCard product={product}
-        className='bg-dark text-white'
-        >
-
-          <ProductImage  classNane='custom-image'/>
-          <ProductTitle title='hola' className='text-bold' activeClass='active'/>
-          <ProductButtons className='custom-button'/>
+          <ProductImage classNane='custom-image' />
+          <ProductButtons className='custom-button' />
         </ProductCard>
+        <ProductCard
 
-
-
-        <ProductCard product={product}
-        style={{
-          backgroundColor: 'green',
-        }}
-          
+          product={product1}
+          className='bg-dark text-white'
+          style={{
+            width: '200px',
+            height: '200px',
+            margin: '10px'
+          }}
         >
-          <ProductImage  
-            style={
-              {
-                boxShadow: '10px 10px 10px rgba(0,0,0,0.5)',
-             
-              }
-            }
-          />
-          <ProductTitle 
-             style={{
-              color: '#fff',
-              fontSize: '1.5rem',
-             }}
-          />
-          <ProductButtons 
-            style={{
-              display: 'flex',
-              justifyContent: 'end',
-            }}
-          />
+          <ProductImage classNane='custom-image' />
+          <ProductButtons className='custom-button' />
         </ProductCard>
-
-
 
       </div>
     </div>
